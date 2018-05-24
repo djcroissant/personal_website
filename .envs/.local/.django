@@ -1,8 +1,8 @@
 # General
 # ------------------------------------------------------------------------------
-DJANGO_SECRET_KEY=6l8LiZplpxR6re-RtWHch9iq-zNuf37Dge2h#=)wFczF!W4YHq)wtchnGrS7*uJ=
-USE_DOCKER=yes
+#DJANGO_SECRET_KEY=6l8LiZplpxR6re-RtWHch9iq-zNuf37Dge2h#=)wFczF!W4YHq)wtchnGrS7*uJ=
+#USE_DOCKER=yes
 
 # Redis
 # ------------------------------------------------------------------------------
-REDIS_URL=redis://redis:6379/0
+#REDIS_URL=redis://redis:6379/0
