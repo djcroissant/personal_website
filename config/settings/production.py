@@ -85,6 +85,8 @@ AWS_S3_OBJECT_PARAMETERS = {
 
 # STATIC
 # ------------------------
+# The following file causes an error on Heroku. By removing it, the
+# compression and caching support from whitenoise is disabled.
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # MEDIA

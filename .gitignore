@@ -284,3 +284,7 @@ personal_website/media/
 .env
 .envs/*
 !.envs/.local/
+
+### Additionally:
+work_files/
+staticfiles/
