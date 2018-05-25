@@ -1308,7 +1308,7 @@
 
 /* Basic */
 
-	html {
+	body {
 		background-color: #313a3d;
 		background-attachment: fixed,						fixed;
 		background-image: url("images/overlay.png"), url("../images/home_html5up/bg.jpg");
