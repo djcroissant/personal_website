@@ -443,12 +443,12 @@
 {% endblock content %}
 
 {% block javascript %}
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/skel.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-	<script src="assets/js/main.js"></script>
+	<script src="{% static 'js/home_html5up/jquery.min.js' %}"></script>
+	<script src="{% static 'js/home_html5up/jquery.scrollex.min.js' %}"></script>
+	<script src="{% static 'js/home_html5up/jquery.scrolly.min.js' %}"></script>
+	<script src="{% static 'js/home_html5up/skel.min.js' %}"></script>
+	<script src="{% static 'js/home_html5up/util.js' %}"></script>
+	<!--[if lte IE 8]><script src="{% static 'js/home_html5up/ie/respond.min.js' %}"></script><![endif]-->
+	<script src="{% static 'js/home_html5up/main.js' %}"></script>
 
 {% endblock javascript %}
