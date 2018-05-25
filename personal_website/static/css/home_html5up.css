@@ -1311,7 +1311,7 @@
 	body {
 		background-color: #313a3d;
 		background-attachment: fixed,						fixed;
-		background-image: url("images/overlay.png"), url("../images/home_html5up/bg.jpg");
+		background-image: url("images/overlay.png"), url("../images/home_html5up/cover_shot.jpg");
 		background-position: top left,					center center;
 		background-repeat: repeat,						none;
 		background-size: auto,						cover;
