@@ -111,8 +111,8 @@
 /* Header */
 
 	#header {
-		-ms-behavior: url("assets/js/ie/backgroundsize.min.htc");
-		background-image: url("../../images/bg.jpg");
+		-ms-behavior: url("../js/home_html5up/ie/backgroundsize.min.htc");
+		background-image: url("../images/home_html5up/cover_shot.jpg");
 		background-size: cover;
 		height: 100%;
 	}
@@ -134,8 +134,8 @@
 /* Footer */
 
 	#footer {
-		-ms-behavior: url("assets/js/ie/backgroundsize.min.htc");
-		background-image: url("../../images/bg.jpg");
+		-ms-behavior: url("../js/home_html5up/ie/backgroundsize.min.htc");
+		background-image: url("../images/home_html5up/cover_shot.jpg");
 		background-size: cover;
 	}
 
