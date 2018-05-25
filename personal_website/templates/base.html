@@ -5,28 +5,23 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block title %}Personal Website{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="A personal website to showcase my work and interests">
+    <meta name="author" content="Derek Covey">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
 
-    {% block css %}
-
+    <!-- CSS Stylesheets: -->
     <!-- Latest compiled and minified Bootstrap 4 beta CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
+    <!-- Font Awesome CSS-->
+    <script src="https://use.fontawesome.com/8a609c9c4b.js"></script>
 
-    <!-- Your stuff: Third-party CSS libraries go here -->
-
-    <!-- This file stores project-specific CSS -->
-
-    <link href="{% static 'css/project.css' %}" rel="stylesheet">
-
-
-    {% endblock %}
+    <!-- Addins from apps -->
+    {% block stylesheet %}{% endblock %}
 
   </head>
 
