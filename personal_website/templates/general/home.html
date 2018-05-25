@@ -6,10 +6,19 @@
 
 {% block stylesheet %}
 <!-- HTML5UP CSS -->
-		<link rel="stylesheet" href="{% static 'css/home_html5up.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/general/html5up.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/general/custom.css' %}" />
 {% endblock stylesheet %}
 
 {% block content %}
+
+	{% if messages %}
+		<ul id="message-container">
+	    {% for message in messages %}
+	    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	    {% endfor %}
+		</ul>
+	{% endif %}
 
   <!-- Header -->
   	<section id="header">
@@ -27,7 +36,7 @@
   <!-- One -->
   	<section id="one" class="main special">
   		<div class="container">
-  			<span class="image fit primary"><img src="{% static 'images/home_html5up/intersection.jpg' %}" alt="" /></span>
+  			<span class="image fit primary"><img src="{% static 'images/general/html5up/intersection.jpg' %}" alt="" /></span>
   			<div class="content">
   				<header class="major">
   					<h2>In a Nutshell</h2>
@@ -58,7 +67,7 @@
   <!-- Two -->
   	<section id="two" class="main special">
   		<div class="container">
-  			<span class="image fit primary"><img src="{% static 'images/home_html5up/more_information.jpg' %}" alt="" /></span>
+  			<span class="image fit primary"><img src="{% static 'images/general/html5up/more_information.jpg' %}" alt="" /></span>
   			<div class="content">
   				<header class="major">
   					<h2>More Information</h2>
@@ -90,7 +99,7 @@
   <!-- Three -->
   	<section id="three" class="main special">
   		<div class="container">
-  			<span class="image fit primary"><img src="{% static 'images/home_html5up/quote.jpg' %}" alt="" /></span>
+  			<span class="image fit primary"><img src="{% static 'images/general/html5up/quote.jpg' %}" alt="" /></span>
   			<div class="content">
   				<header class="major">
   					<h2>Inspiring Quote</h2>
@@ -407,21 +416,21 @@
   					<h5>Fit</h5>
   					<div class="box alt">
   						<div class="row uniform 50%">
-  							<div class="12u"><span class="image fit"><img src="{% static 'images/home_html5up/pic04.jpg' %}" alt="" /></span></div>
-  							<div class="4u"><span class="image fit"><img src="{% static 'images/home_html5up/pic04.jpg' %}" alt="" /></span></div>
-  							<div class="4u"><span class="image fit"><img src="{% static 'images/home_html5up/pic04.jpg' %}" alt="" /></span></div>
-  							<div class="4u"><span class="image fit"><img src="{% static 'images/home_html5up/pic04.jpg' %}" alt="" /></span></div>
-  							<div class="4u"><span class="image fit"><img src="{% static 'images/home_html5up/pic04.jpg' %}" alt="" /></span></div>
-  							<div class="4u"><span class="image fit"><img src="{% static 'images/home_html5up/pic04.jpg' %}" alt="" /></span></div>
-  							<div class="4u"><span class="image fit"><img src="{% static 'images/home_html5up/pic04.jpg' %}" alt="" /></span></div>
-  							<div class="4u"><span class="image fit"><img src="{% static 'images/home_html5up/pic04.jpg' %}" alt="" /></span></div>
-  							<div class="4u"><span class="image fit"><img src="{% static 'images/home_html5up/pic04.jpg' %}" alt="" /></span></div>
-  							<div class="4u"><span class="image fit"><img src="{% static 'images/home_html5up/pic04.jpg' %}" alt="" /></span></div>
+  							<div class="12u"><span class="image fit"><img src="{% static 'images/general/html5up/pic04.jpg' %}" alt="" /></span></div>
+  							<div class="4u"><span class="image fit"><img src="{% static 'images/general/html5up/pic04.jpg' %}" alt="" /></span></div>
+  							<div class="4u"><span class="image fit"><img src="{% static 'images/general/html5up/pic04.jpg' %}" alt="" /></span></div>
+  							<div class="4u"><span class="image fit"><img src="{% static 'images/general/html5up/pic04.jpg' %}" alt="" /></span></div>
+  							<div class="4u"><span class="image fit"><img src="{% static 'images/general/html5up/pic04.jpg' %}" alt="" /></span></div>
+  							<div class="4u"><span class="image fit"><img src="{% static 'images/general/html5up/pic04.jpg' %}" alt="" /></span></div>
+  							<div class="4u"><span class="image fit"><img src="{% static 'images/general/html5up/pic04.jpg' %}" alt="" /></span></div>
+  							<div class="4u"><span class="image fit"><img src="{% static 'images/general/html5up/pic04.jpg' %}" alt="" /></span></div>
+  							<div class="4u"><span class="image fit"><img src="{% static 'images/general/html5up/pic04.jpg' %}" alt="" /></span></div>
+  							<div class="4u"><span class="image fit"><img src="{% static 'images/general/html5up/pic04.jpg' %}" alt="" /></span></div>
   						</div>
   					</div>
   					<h5>Left &amp; Right</h5>
-  					<p><span class="image left"><img src="{% static 'images/home_html5up/pic05.jpg' %}" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-  					<p><span class="image right"><img src="{% static 'images/home_html5up/pic05.jpg' %}" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+  					<p><span class="image left"><img src="{% static 'images/general/html5up/pic05.jpg' %}" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+  					<p><span class="image right"><img src="{% static 'images/general/html5up/pic05.jpg' %}" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
   				</section>
 
   			</div>
@@ -456,12 +465,12 @@
 {% endblock content %}
 
 {% block javascript %}
-	<script src="{% static 'js/home_html5up/jquery.min.js' %}"></script>
-	<script src="{% static 'js/home_html5up/jquery.scrollex.min.js' %}"></script>
-	<script src="{% static 'js/home_html5up/jquery.scrolly.min.js' %}"></script>
-	<script src="{% static 'js/home_html5up/skel.min.js' %}"></script>
-	<script src="{% static 'js/home_html5up/util.js' %}"></script>
-	<!--[if lte IE 8]><script src="{% static 'js/home_html5up/ie/respond.min.js' %}"></script><![endif]-->
-	<script src="{% static 'js/home_html5up/main.js' %}"></script>
+	<script src="{% static 'js/general/html5up/jquery.min.js' %}"></script>
+	<script src="{% static 'js/general/html5up/jquery.scrollex.min.js' %}"></script>
+	<script src="{% static 'js/general/html5up/jquery.scrolly.min.js' %}"></script>
+	<script src="{% static 'js/general/html5up/skel.min.js' %}"></script>
+	<script src="{% static 'js/general/html5up/util.js' %}"></script>
+	<!--[if lte IE 8]><script src="{% static 'js/general/html5up/ie/respond.min.js' %}"></script><![endif]-->
+	<script src="{% static 'js/general/html5up/main.js' %}"></script>
 
 {% endblock javascript %}
