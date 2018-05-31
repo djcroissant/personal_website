@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block stylesheet %}
+		<link rel="stylesheet" href="{% static 'css/general/custom.css' %}" />
+{% endblock stylesheet %}
+
+{% block content %}
+
+	{% if messages %}
+		<ul id="message-container">
+	    {% for message in messages %}
+	    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	    {% endfor %}
+		</ul>
+	{% endif %}
+
+  <h1>Well Hi There!!</h1>
+
+{% endblock content %}
+
+{% block javascript %}
+
+{% endblock javascript %}

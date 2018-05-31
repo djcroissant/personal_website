@@ -10,9 +10,8 @@ from personal_website.general import views as general_views
 urlpatterns = [
     path("", general_views.HomeView.as_view(), name="home"),
     path(
-        "about/",
-        TemplateView.as_view(template_name="pages/about.html"),
-        name="about",
+        "crm/",
+        include("personal_website.crmblog.urls", namespace="crmblog"),
     ),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
