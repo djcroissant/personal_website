@@ -23,33 +23,14 @@
 {% endblock content %}
 
 {% block footer %}
-  <!-- Footer -->
-  	<section id="footer">
-  		<div class="container">
-  			<header class="major">
-  				<h2>Get in touch</h2>
-  			</header>
-  	    {% load crispy_forms_tags %}
-  	    {% crispy form form.helper %}
-  		</div>
-  		<footer>
-  			<ul class="icons">
-  				<li><a href="https://github.com/djcroissant" class="icon alt"><span class="fab fa-github fa-2x"></span></li>
-  				<li><a href="https://www.linkedin.com/in/derek-covey-1928b07b/" class="icon alt"><span class="fab fa-linkedin-in fa-2x"></span></a></li>
-  				<li><a href="https://www.facebook.com/derek.covey" class="icon alt"><span class="fab fa-facebook-f fa-2x"></span></li>
-  			</ul>
-  			<ul class="copyright">
-  				<li>&copy; Derek Covey, 2018</li><li>CSS Design: <a href="http://html5up.net">HTML5 UP</a></li>
-  			</ul>
-  		</footer>
-  	</section>
+  <!-- Additional content can be added here from individual templates -->
 {% endblock footer %}
 
 {% block javascript %}
 	<script src="{% static 'js/crmblog/html5up/jquery.min.js' %}"></script>
-	<script src="{% static 'js/crmblog/html5up/jquery.scrollex.min.js' %}"></script>
-	<script src="{% static 'js/crmblog/html5up/jquery.scrolly.min.js' %}"></script>
+	<script src="{% static 'js/crmblog/html5up/jquery.dropotron.min.js' %}"></script>
 	<script src="{% static 'js/crmblog/html5up/skel.min.js' %}"></script>
+	<script src="{% static 'js/crmblog/html5up/skel-viewport.min.js' %}"></script>
 	<script src="{% static 'js/crmblog/html5up/util.js' %}"></script>
 	<!--[if lte IE 8]><script src="{% static 'js/crmblog/html5up/ie/respond.min.js' %}"></script><![endif]-->
 	<script src="{% static 'js/crmblog/html5up/main.js' %}"></script>
