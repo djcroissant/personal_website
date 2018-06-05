@@ -30,9 +30,9 @@
 													<p>{{ most_recent.tagline }}</p>
 												</header>
 												<a href="#" class="image featured">
-													<img src="{% static 'images/crmblog/html5up/pic01.jpg' %}" alt="" />
+													<img src="{{ most_recent.photo.url }}" alt="" />
 												</a>
-												<p>{{ most_recent.content }}</p>
+												{{ most_recent.content|safe }}
 												{% endwith %}
 											</article>
 											<div class="row 150%">
