@@ -5,9 +5,9 @@ from general.models import TimeStampedModel
 
 class Post(TimeStampedModel):
     title = models.CharField(max_length=255)
-    tagline = models.CharField(max_length=255)
-    photo = models.FileField(upload_to='static/images/crmblog/post_photos')
-    content = models.TextField()
+    tagline = models.CharField(max_length=255, blank=True)
+    photo = models.FileField(upload_to='static/images/crmblog/post_photos', blank=True)
+    content = models.TextField(blank=True)
 
     def __str__(self):
         return self.title
