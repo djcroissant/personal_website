@@ -4,6 +4,7 @@ from django.db.utils import DataError
 
 from crmblog.models import Post
 
+
 class PostModelTests(TestCase):
     def test_post_invalid_without_title(self):
         title = ""
