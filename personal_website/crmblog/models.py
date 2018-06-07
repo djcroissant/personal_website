@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.html import strip_tags
 
 from general.models import TimeStampedModel
 
@@ -10,3 +11,15 @@ class Post(TimeStampedModel):
 
     def __str__(self):
         return self.title
+
+    @property
+    def excerpt(self):
+        """
+        Returns the first 10 words of the post content.
+        Removes all html formatting
+        """
+        excerpt_list = strip_tags(self.content).split(" ")
+        excerpt = " ".join(strip_tags(self.content).split(" ")[:10])
+        if len(excerpt_list) > 10:
+            excerpt += " ..."
+        return excerpt

@@ -79,30 +79,18 @@
 											</section>
 											<section class="box">
 												<header>
-													<h2>Vitae turpis consequat</h2>
+													<h2>Previous Articles</h2>
 												</header>
 												<ul class="style2">
-													<li>
-														<article class="box post-excerpt">
-															<a href="#" class="image left"><img src="{% static 'images/crmblog/html5up/pic08.jpg' %}" alt="" /></a>
-															<h3><a href="#">Diam odio lorem</a></h3>
-															<p>Duis odio diam, luctus et vulputate vitae, vehicula ac dolor. Pellentesque at urna eget tellus sed etiam.</p>
-														</article>
-													</li>
-													<li>
-														<article class="box post-excerpt">
-															<a href="#" class="image left"><img src="{% static 'images/crmblog/html5up/pic09.jpg' %}" alt="" /></a>
-															<h3><a href="#">Sed duis consequat</a></h3>
-															<p>Duis odio diam, luctus et vulputate vitae, vehicula ac dolor. Pellentesque at urna eget tellus sed etiam.</p>
-														</article>
-													</li>
-													<li>
-														<article class="box post-excerpt">
-															<a href="#" class="image left"><img src="{% static 'images/crmblog/html5up/pic10.jpg' %}" alt="" /></a>
-															<h3><a href="#">Tellus nulla volutpat</a></h3>
-															<p>Duis odio diam, luctus et vulputate vitae, vehicula ac dolor. Pellentesque at urna eget tellus sed etiam.</p>
-														</article>
-													</li>
+													{% for post in object_list|slice:"1:" %}
+														<li>
+															<article class="box post-excerpt">
+																<a href="#" class="image left"><img src="{{ post.photo.url }}" alt="" /></a>
+																<h3><a href="#">{{ post.title }}</a></h3>
+																<p>{{ post.excerpt }}</p>
+															</article>
+														</li>
+													{% endfor %}
 												</ul>
 												<a href="#" class="button style1">Archives</a>
 											</section>
