@@ -1,7 +1,6 @@
 from django import forms
 from django.core.mail import send_mail
 
-
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Div, Field, ButtonHolder
 
@@ -14,11 +13,7 @@ class ContactForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super(ContactForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
-        # self.helper.form_id = 'id-ProfileForm'
-        # self.helper.form_class = 'account_info_forms'
         self.helper.form_method = 'post'
-        # self.helper.form_action = ''
-        # self.helper.field_class = '6u 12u(mobilep)'
         self.fields['name'].label = False
         self.fields['email'].label = False
         self.fields['subject'].label = False
@@ -86,7 +81,6 @@ class ContactForm(forms.Form):
 
     def send_email(self):
         # send email using the self.cleaned_data dictionary
-        # import pdb; pdb.set_trace()
         subject = "[DC Contact] " + self.cleaned_data['subject']
         from_email = self.cleaned_data['email']
         to_email = ("derek.covey@gmail.com",)
