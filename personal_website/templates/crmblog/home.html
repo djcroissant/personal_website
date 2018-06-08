@@ -1,11 +1,13 @@
-{% extends "crmblog/base.html" %}
+{% extends "base.html" %}
 
 {% load static %}
 
 {% block title %}CRM Blog - derekcovey.me{% endblock %}
 
 {% block stylesheet %}
-	{{ block.super }}
+  <!-- HTML5UP CSS -->
+  		<link rel="stylesheet" href="{% static 'css/crmblog/html5up.css' %}" />
+  		<link rel="stylesheet" href="{% static 'css/crmblog/custom.css' %}" />
 {% endblock stylesheet %}
 
 {% block content %}
@@ -164,5 +166,11 @@
 {% endblock content %}
 
 {% block javascript %}
-
+	<script src="{% static 'js/crmblog/html5up/jquery.min.js' %}"></script>
+	<script src="{% static 'js/crmblog/html5up/jquery.dropotron.min.js' %}"></script>
+	<script src="{% static 'js/crmblog/html5up/skel.min.js' %}"></script>
+	<script src="{% static 'js/crmblog/html5up/skel-viewport.min.js' %}"></script>
+	<script src="{% static 'js/crmblog/html5up/util.js' %}"></script>
+	<!--[if lte IE 8]><script src="{% static 'js/crmblog/html5up/ie/respond.min.js' %}"></script><![endif]-->
+	<script src="{% static 'js/crmblog/html5up/main.js' %}"></script>
 {% endblock javascript %}
