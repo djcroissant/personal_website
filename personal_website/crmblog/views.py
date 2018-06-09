@@ -46,7 +46,7 @@ class PostListView(EmailFormListView):
     model = Post
     template_name = 'crmblog/archive.html'
     form_class = ContactForm
-    success_url = reverse_lazy('crmblog:home')
+    success_url = reverse_lazy('crmblog:archive')
 
     def get_queryset(self):
         queryset = super(PostListView, self).get_queryset()
@@ -79,3 +79,6 @@ class PostDetailView(FormMixin, DetailView):
             return self.form_valid(form)
         else:
             return self.form_invalid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('crmblog:post_detail', kwargs = {'slug': self.kwargs['slug']})
