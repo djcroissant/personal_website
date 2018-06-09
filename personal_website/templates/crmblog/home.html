@@ -27,7 +27,7 @@
 											<article class="box post">
 												{% with object_list|first as most_recent %}
 												<header class="style1">
-													<h2>{{ most_recent.title }}</h2>
+                          <h2><a href="{% url 'crmblog:post_detail' most_recent.slug %}">{{ most_recent.title }}</a></h2>
 													<p>{{ most_recent.tagline }}</p>
 												</header>
 												<img class="image featured" src="{{ most_recent.photo.url }}" alt="" />
