@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, TemplateView
+from django.views.generic import ListView, TemplateView, DetailView
 from django.views.generic.edit import FormMixin
 from django.contrib import messages
 
@@ -41,12 +41,41 @@ class HomeView(EmailFormListView):
         queryset = super(HomeView, self).get_queryset()
         return queryset.order_by('-created')[:4]     # Only need the 4 most recent posts
 
-class ArchiveView(EmailFormListView):
+
+class PostListView(EmailFormListView):
     model = Post
     template_name = 'crmblog/archive.html'
     form_class = ContactForm
     success_url = reverse_lazy('crmblog:home')
 
     def get_queryset(self):
-        queryset = super(ArchiveView, self).get_queryset()
+        queryset = super(PostListView, self).get_queryset()
         return queryset.order_by('-created')
+
+
+class PostDetailView(FormMixin, DetailView):
+    model = Post
+    template_name = 'crmblog/post_detail.html'
+    form_class = ContactForm
+    success_url = reverse_lazy('crmblog:home')
+
+    def get_context_data(self, **kwargs):
+        context = super(PostDetailView, self).get_context_data(**kwargs)
+        context['form'] = self.get_form()
+        return context
+
+    def form_valid(self, form):
+        form.send_email()
+        messages.success(self.request, 'Thanks for reaching out. Your message was sent successfully.')
+        return super(PostDetailView, self).form_valid(form)
+
+    def post(self, request, *args, **kwargs):
+        """
+        Handle POST requests: instantiate a form instance with the passed
+        POST variables and then check if it's valid.
+        """
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)

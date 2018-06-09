@@ -30,9 +30,7 @@
 													<h2>{{ most_recent.title }}</h2>
 													<p>{{ most_recent.tagline }}</p>
 												</header>
-												<a href="#" class="image featured">
-													<img src="{{ most_recent.photo.url }}" alt="" />
-												</a>
+												<img class="image featured" src="{{ most_recent.photo.url }}" alt="" />
 												{{ most_recent.content|safe }}
 												{% endwith %}
 											</article>
@@ -51,8 +49,8 @@
 													{% for post in object_list|slice:"1:" %}
 														<li>
 															<article class="box post-excerpt">
-																<a href="#" class="image left"><img src="{{ post.photo.url }}" alt="" /></a>
-																<h3><a href="#">{{ post.title }}</a></h3>
+																<a href="{% url 'crmblog:post_detail' post.slug %}" class="image left"><img src="{{ post.photo.url }}" alt="" /></a>
+																<h3><a href="{% url 'crmblog:post_detail' post.slug %}">{{ post.title }}</a></h3>
 																<p>{{ post.excerpt }}</p>
 															</article>
 														</li>

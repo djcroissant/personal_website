@@ -21,20 +21,14 @@
 						<div id="main" class="container">
 							<!-- Content -->
 								<div id="content">
-									<header class="style1">
-                    <h2>The Archives</h2>
-                  </header>
-                  <ul class="style2">
-                    {% for post in object_list %}
-                      <li>
-                        <article class="box post-excerpt">
-                          <a href="{% url 'crmblog:post_detail' post.slug %}" class="image left"><img src="{{ post.photo.url }}" alt="" /></a>
-                          <h3><a href="{% url 'crmblog:post_detail' post.slug %}">{{ post.title }}</a></h3>
-                          <p>{{ post.excerpt }}</p>
-                        </article>
-                      </li>
-                    {% endfor %}
-                  </ul>
+									<article class="box post">
+										<header class="style1">
+											<h2>{{ object.title }}</h2>
+											<p>{{ object.tagline }}</p>
+										</header>
+											<img class="image featured" src="{{ object.photo.url }}" alt="" />
+										{{ object.content|safe }}
+									</article>
 								</div>
 						</div>
 					</div>
