@@ -20,4 +20,4 @@ coreapi==2.3.3  # https://github.com/core-api/python-client
 
 # Additional packages:
 # ------------------------------------------------------------------------------
-django-autoslug==1.9.3  # https://pypi.org/project/django-autoslug/
+-e git+https://github.com/djcroissant/django-autoslug.git#egg=autoslug
