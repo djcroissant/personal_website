@@ -20,46 +20,50 @@
 					<div class="wrapper style2">
 						<div id="main" class="container">
 							<div class="row 150%">
-								<div class="8u 12u(mobile)">
+                {% if object_list %}
+  								<div class="8u 12u(mobile)">
 
-									<!-- Content -->
-										<div id="content">
-											<article class="box post">
-												{% with object_list|first as most_recent %}
-												<header class="style1">
-                          <h2><a href="{% url 'crmblog:post_detail' most_recent.slug %}">{{ most_recent.title }}</a></h2>
-													<p>{{ most_recent.tagline }}</p>
-												</header>
-												<img class="image featured" src="{{ most_recent.photo.url }}" alt="" />
-												{{ most_recent.content|safe }}
-												{% endwith %}
-											</article>
-										</div>
+  									<!-- Content -->
+  										<div id="content">
+  											<article class="box post">
+  												{% with object_list|first as most_recent %}
+  												<header class="style1">
+                            <h2><a href="{% url 'crmblog:post_detail' most_recent.slug %}">{{ most_recent.title }}</a></h2>
+  													<p>{{ most_recent.tagline }}</p>
+  												</header>
+  												<img class="image featured" src="{{ most_recent.photo.url }}" alt="" />
+  												{{ most_recent.content|safe }}
+  												{% endwith %}
+  											</article>
+  										</div>
 
-								</div>
-								<div class="4u 12u(mobile)">
+  								</div>
+  								<div class="4u 12u(mobile)">
 
-									<!-- Sidebar -->
-										<div id="sidebar">
-											<section class="box">
-												<header>
-													<h2>Previous Articles</h2>
-												</header>
-												<ul class="style2">
-													{% for post in object_list|slice:"1:" %}
-														<li>
-															<article class="box post-excerpt">
-																<a href="{% url 'crmblog:post_detail' post.slug %}" class="image left"><img src="{{ post.photo.url }}" alt="" /></a>
-																<h3><a href="{% url 'crmblog:post_detail' post.slug %}">{{ post.title }}</a></h3>
-																<p>{{ post.excerpt }}</p>
-															</article>
-														</li>
-													{% endfor %}
-												</ul>
-												<a href="{% url 'crmblog:archive' %}" class="button style1">Archives</a>
-											</section>
-										</div>
-								</div>
+  									<!-- Sidebar -->
+  										<div id="sidebar">
+  											<section class="box">
+  												<header>
+  													<h2>Previous Articles</h2>
+  												</header>
+  												<ul class="style2">
+  													{% for post in object_list|slice:"1:" %}
+  														<li>
+  															<article class="box post-excerpt">
+  																<a href="{% url 'crmblog:post_detail' post.slug %}" class="image left"><img src="{{ post.photo.url }}" alt="" /></a>
+  																<h3><a href="{% url 'crmblog:post_detail' post.slug %}">{{ post.title }}</a></h3>
+  																<p>{{ post.excerpt }}</p>
+  															</article>
+  														</li>
+  													{% endfor %}
+  												</ul>
+  												<a href="{% url 'crmblog:archive' %}" class="button style1">Archives</a>
+  											</section>
+  										</div>
+  								</div>
+                {% else %}
+                  <h1>Content coming soon!</h1>
+                {% endif %}
 							</div>
 						</div>
 					</div>
