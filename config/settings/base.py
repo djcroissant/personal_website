@@ -238,5 +238,16 @@ ACCOUNT_ADAPTER = 'personal_website.users.adapters.AccountAdapter'
 SOCIALACCOUNT_ADAPTER = 'personal_website.users.adapters.SocialAccountAdapter'
 
 
-# Your stuff...
+# TinyMCE
+# Note: the TINYMCE_JS_URL variable needed to be set in base.py. I orignially
+# had it in production.py. However, the admin was not finding the .js file
+# correctly. It looks like a tinymce bug. Moving to base.py works and
+# has no noticeable drawbacks.
 # ------------------------------------------------------------------------------
+AWS_STORAGE_BUCKET_NAME = env('DJANGO_AWS_STORAGE_BUCKET_NAME')
+TINYMCE_JS_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/tiny_mce/tiny_mce.js'
+TINYMCE_JS_ROOT = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/tiny_mce/'
+TINYMCE_DEFAULT_CONFIG = {
+    'height': 360,
+    'width': 800,
+    }
