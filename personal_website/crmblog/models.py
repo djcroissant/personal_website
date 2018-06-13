@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.html import strip_tags
 
+from tinymce.models import HTMLField
+
 from autoslug import AutoSlugField
 
 from general.models import TimeStampedModel
@@ -10,7 +12,7 @@ class Post(TimeStampedModel):
     title = models.CharField(max_length=255)
     tagline = models.CharField(max_length=255, blank=True)
     photo = models.FileField(upload_to='static/images/crmblog/post_photos', blank=True)
-    content = models.TextField(blank=True)
+    content = HTMLField(blank=True)
     slug = AutoSlugField(populate_from='title', blank=True)
 
     def __str__(self):

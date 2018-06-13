@@ -21,3 +21,4 @@ coreapi==2.3.3  # https://github.com/core-api/python-client
 # Additional packages:
 # ------------------------------------------------------------------------------
 -e git+https://github.com/djcroissant/django-autoslug.git#egg=autoslug
+django-tinymce==2.7.0
