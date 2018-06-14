@@ -14,6 +14,8 @@ class Post(TimeStampedModel):
     photo = models.FileField(upload_to='static/images/crmblog/post_photos', blank=True)
     content = HTMLField(blank=True)
     slug = AutoSlugField(populate_from='title', blank=True)
+    posted_date = models.DateTimeField(null=True)
+    
 
     def __str__(self):
         return self.title
