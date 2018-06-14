@@ -22,8 +22,13 @@ class BioViewTests(TestCase):
     def setUp(self):
         self.factory = RequestFactory()
 
+    def test_base_url_redirects_to_bio_page(self):
+        url_path = "/bio"
+        reverse_path = reverse("bio")
+        self.assertEqual(reverse_path, url_path)
+
     def test_url_name_reverses_correctly(self):
-        url_path = "/"
+        url_path = "/bio"
         reverse_path = reverse("bio")
         self.assertEqual(reverse_path, url_path)
 
