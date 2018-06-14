@@ -239,7 +239,7 @@ SOCIALACCOUNT_ADAPTER = 'personal_website.users.adapters.SocialAccountAdapter'
 
 
 # TinyMCE
-# Note: the TINYMCE_JS_URL variable needed to be set in base.py. I orignially
+# Note: the TINYMCE_JS_URL variable is set here in base.py. I orignially
 # had it in production.py. However, the admin was not finding the .js file
 # correctly. It looks like a tinymce bug. Moving to base.py works and
 # has no noticeable drawbacks.
