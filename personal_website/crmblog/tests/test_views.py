@@ -27,6 +27,10 @@ class WebHomeViewTests(TestCase):
 
     @classmethod
     def setUpTestData(cls):
+        """
+        Create 6 Post objects. The first five get tagged "web development"
+        The last gets tagged with something else
+        """
         Post.objects.create(title="one", posted_date=timezone.now())
         Post.objects.create(title="two", posted_date=timezone.now())
         Post.objects.create(title="three", posted_date=timezone.now())
@@ -34,6 +38,8 @@ class WebHomeViewTests(TestCase):
         Post.objects.create(title="five", posted_date=timezone.now())
         for p in Post.objects.all():
             p.tags.add("web development",)
+        exclude=Post.objects.create(title="exclude", posted_date=timezone.now())
+        exclude.tags.add("different tag")
 
     def test_url_name_reverses_correctly(self):
         url_path = "/blog/web-development"
@@ -58,7 +64,7 @@ class WebHomeViewTests(TestCase):
         kwargs = {}
         view = setup_view(WebHomeView(), request, **kwargs)
         queryset = view.get_queryset()
-        self.assertEqual(Post.objects.last(), queryset[0])
+        self.assertEqual(Post.objects.filter(tags__name__in=["web development"]).last(), queryset[0])
         self.assertTrue(Post.objects.get(title="one") not in queryset)
 
     def test_valid_form_sends_email(self):
@@ -100,6 +106,8 @@ class WebPostListViewTests(TestCase):
         Post.objects.create(title="five", posted_date=timezone.now())
         for p in Post.objects.all():
             p.tags.add("web development",)
+        exclude=Post.objects.create(title="exclude", posted_date=timezone.now())
+        exclude.tags.add("different tag")
 
     def test_url_name_reverses_correctly(self):
         url_path = "/blog/web-development/archive"
@@ -111,20 +119,20 @@ class WebPostListViewTests(TestCase):
         response = WebPostListView.as_view()(request)
         self.assertTrue("crmblog/archive.html" in response.template_name)
 
-    def test_list_view_returns_all_posts(self):
+    def test_list_view_returns_all_correctly_tagged_posts(self):
         request = self.factory.get("/fake/")
         kwargs = {}
         view = setup_view(WebPostListView(), request, **kwargs)
         queryset = view.get_queryset()
         self.assertEqual(len(queryset), 5)
-        self.assertTrue(len(Post.objects.all()) == 5)
+        self.assertTrue(len(Post.objects.all()) == 6)
 
     def test_queryset_contains_last_post_first(self):
         request = self.factory.get("/fake/")
         kwargs = {}
         view = setup_view(WebPostListView(), request, **kwargs)
         queryset = view.get_queryset()
-        self.assertEqual(Post.objects.last(), queryset[0])
+        self.assertEqual(Post.objects.filter(tags__name__in=["web development"]).last(), queryset[0])
 
     def test_valid_form_sends_email(self):
         """
