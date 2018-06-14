@@ -8,6 +8,7 @@
   <!-- HTML5UP CSS -->
   		<link rel="stylesheet" href="{% static 'css/general/html5up.css' %}" />
   		<link rel="stylesheet" href="{% static 'css/general/custom.css' %}" />
+  		<link rel="stylesheet" href="{% static 'css/general/custom_nav.css' %}" />
 {% endblock stylesheet %}
 
 {% block content %}
@@ -15,7 +16,17 @@
 
   <!-- Header -->
   	<section id="header">
+    <!-- Nav -->
+
+
   		<header class="major">
+                <nav id="nav">
+                  <ul>
+                    <li class="current"><a href="{% url 'crmblog:projects' %}">Projects</a></li>
+                    <li class="current"><a href="https://internationalespionage.wordpress.com/">Adventure</a></li>
+                    <li class="current"><a href="{% url 'home' %}">Bio</a></li>
+                  </ul>
+                </nav>
   			<h1>Derek Covey</h1>
   			<p>Project Manager ~ Web Developer ~ Aerospace Engineer</p>
   		</header>
