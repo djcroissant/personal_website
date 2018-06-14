@@ -8,7 +8,7 @@ from django.views import defaults as default_views
 from personal_website.general import views as general_views
 
 urlpatterns = [
-    path("", general_views.HomeView.as_view(), name="home"),
+    path("bio", general_views.BioView.as_view(), name="bio"),
     path(
         "blog/",
         include("personal_website.crmblog.urls", namespace="crmblog"),

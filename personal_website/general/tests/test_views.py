@@ -3,7 +3,7 @@ from django.test import TestCase, RequestFactory
 from django.core import mail
 from django.contrib import messages
 
-from general.views import HomeView
+from general.views import BioView
 from general.forms import ContactForm
 
 
@@ -18,19 +18,19 @@ def setup_view(view, request, *args, **kwargs):
     return view
 
 
-class HomeViewTests(TestCase):
+class BioViewTests(TestCase):
     def setUp(self):
         self.factory = RequestFactory()
 
     def test_url_name_reverses_correctly(self):
         url_path = "/"
-        reverse_path = reverse("home")
+        reverse_path = reverse("bio")
         self.assertEqual(reverse_path, url_path)
 
     def test_view_uses_correct_template(self):
         request = self.factory.get("/fake/")
-        response = HomeView.as_view()(request)
-        self.assertTrue("general/home.html" in response.template_name)
+        response = BioView.as_view()(request)
+        self.assertTrue("general/bio.html" in response.template_name)
 
     def test_valid_form_sends_email(self):
         """
@@ -38,7 +38,7 @@ class HomeViewTests(TestCase):
         """
         request = self.factory.get("/fake/")
         kwargs = {}
-        view = setup_view(HomeView(), request, **kwargs)
+        view = setup_view(BioView(), request, **kwargs)
         form = ContactForm({
             'name': "name",
             'email': "e@mail.com",

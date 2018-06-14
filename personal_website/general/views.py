@@ -5,12 +5,12 @@ from django.contrib import messages
 
 from .forms import ContactForm
 
-class HomeView(FormView):
-    template_name = 'general/home.html'
+class BioView(FormView):
+    template_name = 'general/bio.html'
     form_class = ContactForm
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('bio')
 
     def form_valid(self, form):
         form.send_email()
         messages.success(self.request, 'Thanks for reaching out. Your message was sent successfully.')
-        return super(HomeView, self).form_valid(form)
+        return super(BioView, self).form_valid(form)
