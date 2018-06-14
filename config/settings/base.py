@@ -69,6 +69,7 @@ THIRD_PARTY_APPS = [
     'allauth.socialaccount',
     'rest_framework',
     'tinymce',
+    'taggit',
 ]
 LOCAL_APPS = [
     'personal_website.users.apps.UsersConfig',

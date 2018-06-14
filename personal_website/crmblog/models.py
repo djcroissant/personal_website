@@ -5,6 +5,8 @@ from tinymce.models import HTMLField
 
 from autoslug import AutoSlugField
 
+from taggit.managers import TaggableManager
+
 from general.models import TimeStampedModel
 
 
@@ -15,7 +17,8 @@ class Post(TimeStampedModel):
     content = HTMLField(blank=True)
     slug = AutoSlugField(populate_from='title', blank=True)
     posted_date = models.DateTimeField(null=True)
-    
+
+    tags = TaggableManager()
 
     def __str__(self):
         return self.title
