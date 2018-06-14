@@ -93,6 +93,6 @@ class ProjectListView(EmailFormListView):
     success_url = reverse_lazy('crmblog:projects')
 
     def get_queryset(self):
-        queryset = super(WebPostListView, self).get_queryset()
+        queryset = super(ProjectListView, self).get_queryset()
         queryset = queryset.filter(tags__name__in=["feature project"])
         return queryset.order_by('-posted_date')

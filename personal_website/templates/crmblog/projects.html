@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}CRM Blog - derekcovey.me{% endblock %}
+
+{% block stylesheet %}
+  <!-- HTML5UP CSS -->
+  		<link rel="stylesheet" href="{% static 'css/crmblog/html5up.css' %}" />
+  		<link rel="stylesheet" href="{% static 'css/general/custom.css' %}" />
+{% endblock stylesheet %}
+
+{% block content %}
+	{{ block.super }}
+
+	<div id="page-wrapper">
+		{% include "crmblog/partials/header.html" with title="Projects" tagline="A portfolio of recent web development projects" %}
+
+				<!-- Main -->
+					<div class="wrapper style2">
+						<div id="main" class="container">
+              {% if object_list %}
+                <!-- Content -->
+  								<div id="content">
+                    {% for post in object_list %}
+    									<article class="box post">
+    										<header class="style1">
+    											<h2>{{ post.title }}</h2>
+    											<p>{{ post.tagline }}</p>
+    										</header>
+    											<img class="image featured" src="{{ post.photo.url }}" alt="" />
+    										{{ post.content|safe }}
+    									</article>
+                      {% if not object_list.last %}<hr />{% endif %}
+                    {% endfor %}
+  								</div>
+              {% else %}
+                <h1>Content coming soon!</h1>
+              {% endif %}
+						</div>
+					</div>
+
+		{% include "crmblog/partials/footer.html" %}
+	</div>
+
+{% endblock content %}
+
+{% block javascript %}
+	{% include "crmblog/partials/scripts.html" %}
+{% endblock javascript %}
