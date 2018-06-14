@@ -49,7 +49,7 @@ class WebHomeViewTests(TestCase):
     def test_view_uses_correct_template(self):
         request = self.factory.get("/fake/")
         response = WebHomeView.as_view()(request)
-        self.assertTrue("crmblog/home.html" in response.template_name)
+        self.assertTrue("crmblog/web_home.html" in response.template_name)
 
     def test_list_view_returns_last_four_posts(self):
         request = self.factory.get("/fake/")
@@ -117,7 +117,7 @@ class WebPostListViewTests(TestCase):
     def test_view_uses_correct_template(self):
         request = self.factory.get("/fake/")
         response = WebPostListView.as_view()(request)
-        self.assertTrue("crmblog/archive.html" in response.template_name)
+        self.assertTrue("crmblog/web_archive.html" in response.template_name)
 
     def test_list_view_returns_all_correctly_tagged_posts(self):
         request = self.factory.get("/fake/")

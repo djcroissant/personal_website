@@ -33,7 +33,7 @@ class EmailFormListView(FormMixin, ListView):
 
 class WebHomeView(EmailFormListView):
     model = Post
-    template_name = 'crmblog/home.html'
+    template_name = 'crmblog/web_home.html'
     form_class = ContactForm
     success_url = reverse_lazy('crmblog:webhome')
 
@@ -45,7 +45,7 @@ class WebHomeView(EmailFormListView):
 
 class WebPostListView(EmailFormListView):
     model = Post
-    template_name = 'crmblog/archive.html'
+    template_name = 'crmblog/web_archive.html'
     form_class = ContactForm
     success_url = reverse_lazy('crmblog:archive')
 
@@ -84,3 +84,15 @@ class PostDetailView(FormMixin, DetailView):
 
     def get_success_url(self):
         return reverse_lazy('crmblog:post_detail', kwargs = {'slug': self.kwargs['slug']})
+
+
+class ProjectListView(EmailFormListView):
+    model = Post
+    template_name = 'crmblog/projects.html'
+    form_class = ContactForm
+    success_url = reverse_lazy('crmblog:projects')
+
+    def get_queryset(self):
+        queryset = super(WebPostListView, self).get_queryset()
+        queryset = queryset.filter(tags__name__in=["feature project"])
+        return queryset.order_by('-posted_date')
