@@ -31,26 +31,28 @@ class EmailFormListView(FormMixin, ListView):
             return self.form_invalid(form)
 
 
-class HomeView(EmailFormListView):
+class WebHomeView(EmailFormListView):
     model = Post
     template_name = 'crmblog/home.html'
     form_class = ContactForm
     success_url = reverse_lazy('crmblog:home')
 
     def get_queryset(self):
-        queryset = super(HomeView, self).get_queryset()
+        queryset = super(WebHomeView, self).get_queryset()
+        queryset = queryset.filter(tags__name__in=["web development"])
         return queryset.order_by('-created')[:4]     # Only need the 4 most recent posts
 
 
-class PostListView(EmailFormListView):
+class WebPostListView(EmailFormListView):
     model = Post
     template_name = 'crmblog/archive.html'
     form_class = ContactForm
     success_url = reverse_lazy('crmblog:archive')
 
     def get_queryset(self):
-        queryset = super(PostListView, self).get_queryset()
-        return queryset.order_by('-created')
+        queryset = super(WebPostListView, self).get_queryset()
+        queryset = queryset.filter(tags__name__in=["web development"])
+        return queryset.order_by('-posted_date')
 
 
 class PostDetailView(FormMixin, DetailView):

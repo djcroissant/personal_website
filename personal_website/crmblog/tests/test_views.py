@@ -3,7 +3,7 @@ from django.test import TestCase, RequestFactory
 from django.core import mail
 from django.contrib import messages
 
-from crmblog.views import HomeView, PostListView, PostDetailView
+from crmblog.views import WebHomeView, WebPostListView, PostDetailView
 from crmblog.models import Post
 from crmblog.forms import ContactForm
 
@@ -19,7 +19,7 @@ def setup_view(view, request, *args, **kwargs):
     return view
 
 
-class HomeViewTests(TestCase):
+class WebHomeViewTests(TestCase):
     def setUp(self):
         self.factory = RequestFactory()
 
@@ -38,13 +38,13 @@ class HomeViewTests(TestCase):
 
     def test_view_uses_correct_template(self):
         request = self.factory.get("/fake/")
-        response = HomeView.as_view()(request)
+        response = WebHomeView.as_view()(request)
         self.assertTrue("crmblog/home.html" in response.template_name)
 
     def test_list_view_returns_last_four_posts(self):
         request = self.factory.get("/fake/")
         kwargs = {}
-        view = setup_view(HomeView(), request, **kwargs)
+        view = setup_view(WebHomeView(), request, **kwargs)
         queryset = view.get_queryset()
         self.assertEqual(len(queryset), 4)
         self.assertTrue(len(Post.objects.all()) > 4)
@@ -52,7 +52,7 @@ class HomeViewTests(TestCase):
     def test_queryset_contains_last_post_first(self):
         request = self.factory.get("/fake/")
         kwargs = {}
-        view = setup_view(HomeView(), request, **kwargs)
+        view = setup_view(WebHomeView(), request, **kwargs)
         queryset = view.get_queryset()
         self.assertEqual(Post.objects.last(), queryset[0])
         self.assertTrue(Post.objects.get(title="one") not in queryset)
@@ -63,7 +63,7 @@ class HomeViewTests(TestCase):
         """
         request = self.factory.get("/fake/")
         kwargs = {}
-        view = setup_view(HomeView(), request, **kwargs)
+        view = setup_view(WebHomeView(), request, **kwargs)
         form = ContactForm({
             'name': "name",
             'email': "e@mail.com",
@@ -83,7 +83,7 @@ class HomeViewTests(TestCase):
         assert len(mail.outbox) == 1
 
 
-class PostListViewTests(TestCase):
+class WebPostListViewTests(TestCase):
     def setUp(self):
         self.factory = RequestFactory()
 
@@ -102,13 +102,13 @@ class PostListViewTests(TestCase):
 
     def test_view_uses_correct_template(self):
         request = self.factory.get("/fake/")
-        response = PostListView.as_view()(request)
+        response = WebPostListView.as_view()(request)
         self.assertTrue("crmblog/archive.html" in response.template_name)
 
     def test_list_view_returns_all_posts(self):
         request = self.factory.get("/fake/")
         kwargs = {}
-        view = setup_view(PostListView(), request, **kwargs)
+        view = setup_view(WebPostListView(), request, **kwargs)
         queryset = view.get_queryset()
         self.assertEqual(len(queryset), 5)
         self.assertTrue(len(Post.objects.all()) == 5)
@@ -116,7 +116,7 @@ class PostListViewTests(TestCase):
     def test_queryset_contains_last_post_first(self):
         request = self.factory.get("/fake/")
         kwargs = {}
-        view = setup_view(PostListView(), request, **kwargs)
+        view = setup_view(WebPostListView(), request, **kwargs)
         queryset = view.get_queryset()
         self.assertEqual(Post.objects.last(), queryset[0])
 
@@ -126,7 +126,7 @@ class PostListViewTests(TestCase):
         """
         request = self.factory.get("/fake/")
         kwargs = {}
-        view = setup_view(PostListView(), request, **kwargs)
+        view = setup_view(WebPostListView(), request, **kwargs)
         form = ContactForm({
             'name': "name",
             'email': "e@mail.com",
