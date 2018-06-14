@@ -1,3 +1,5 @@
+from django.utils import timezone
+
 from django.test import TestCase
 from django.core.exceptions import ValidationError
 from django.db.utils import DataError
@@ -13,7 +15,8 @@ class PostModelTests(TestCase):
 
     def test_post_valid_with_only_title(self):
         title = "hello"
-        post = Post.objects.create(title=title)
+        posted_date = timezone.now()
+        post = Post.objects.create(title=title, posted_date=posted_date)
         try:
             post.full_clean()
         except:

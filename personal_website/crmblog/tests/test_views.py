@@ -1,3 +1,5 @@
+from django.utils import timezone
+
 from django.urls import reverse
 from django.test import TestCase, RequestFactory
 from django.core import mail
@@ -25,15 +27,17 @@ class WebHomeViewTests(TestCase):
 
     @classmethod
     def setUpTestData(cls):
-        Post.objects.create(title="one")
-        Post.objects.create(title="two")
-        Post.objects.create(title="three")
-        Post.objects.create(title="four")
-        Post.objects.create(title="five")
+        Post.objects.create(title="one", posted_date=timezone.now())
+        Post.objects.create(title="two", posted_date=timezone.now())
+        Post.objects.create(title="three", posted_date=timezone.now())
+        Post.objects.create(title="four", posted_date=timezone.now())
+        Post.objects.create(title="five", posted_date=timezone.now())
+        for p in Post.objects.all():
+            p.tags.add("web development",)
 
     def test_url_name_reverses_correctly(self):
-        url_path = "/crm/"
-        reverse_path = reverse("crmblog:home")
+        url_path = "/blog/web-development"
+        reverse_path = reverse("crmblog:webhome")
         self.assertEqual(reverse_path, url_path)
 
     def test_view_uses_correct_template(self):
@@ -89,14 +93,16 @@ class WebPostListViewTests(TestCase):
 
     @classmethod
     def setUpTestData(cls):
-        Post.objects.create(title="one")
-        Post.objects.create(title="two")
-        Post.objects.create(title="three")
-        Post.objects.create(title="four")
-        Post.objects.create(title="five")
+        Post.objects.create(title="one", posted_date=timezone.now())
+        Post.objects.create(title="two", posted_date=timezone.now())
+        Post.objects.create(title="three", posted_date=timezone.now())
+        Post.objects.create(title="four", posted_date=timezone.now())
+        Post.objects.create(title="five", posted_date=timezone.now())
+        for p in Post.objects.all():
+            p.tags.add("web development",)
 
     def test_url_name_reverses_correctly(self):
-        url_path = "/crm/archive"
+        url_path = "/blog/web-development/archive"
         reverse_path = reverse("crmblog:archive")
         self.assertEqual(reverse_path, url_path)
 
@@ -155,7 +161,7 @@ class PostDetailViewTests(TestCase):
         cls.post = Post.objects.create(title="a test post")
 
     def test_url_name_reverses_correctly(self):
-        url_path = "/crm/a-test-post"
+        url_path = "/blog/a-test-post"
         reverse_path = reverse("crmblog:post_detail", kwargs={'slug': self.post.slug})
         self.assertEqual(reverse_path, url_path)
 

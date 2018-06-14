@@ -35,7 +35,7 @@ class WebHomeView(EmailFormListView):
     model = Post
     template_name = 'crmblog/home.html'
     form_class = ContactForm
-    success_url = reverse_lazy('crmblog:home')
+    success_url = reverse_lazy('crmblog:webhome')
 
     def get_queryset(self):
         queryset = super(WebHomeView, self).get_queryset()
@@ -59,7 +59,7 @@ class PostDetailView(FormMixin, DetailView):
     model = Post
     template_name = 'crmblog/post_detail.html'
     form_class = ContactForm
-    success_url = reverse_lazy('crmblog:home')
+    success_url = reverse_lazy('crmblog:webhome')
 
     def get_context_data(self, **kwargs):
         context = super(PostDetailView, self).get_context_data(**kwargs)
