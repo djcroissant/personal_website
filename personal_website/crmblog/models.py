@@ -15,10 +15,9 @@ class Post(TimeStampedModel):
     tagline = models.CharField(max_length=255, blank=True)
     photo = models.FileField(
         upload_to='static/images/crmblog/post_photos', blank=True)
-    content = HTMLField(blank=True)
-    # Issues with TinyMCE editor. Adding plain content field as temporary
-    # work around
-    content_plain = models.TextField(blank=True)
+    # Issues with TinyMCE editor. Reverting to standard text for now
+    # content = HTMLField(blank=True)
+    content = models.TextField(blank=True)
     slug = AutoSlugField(populate_from='title', blank=True)
     posted_date = models.DateTimeField(null=True)
 

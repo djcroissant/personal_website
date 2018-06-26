@@ -30,7 +30,6 @@
     										</header>
     											<img class="image featured" src="{{ post.photo.url }}" alt="" />
     										{{ post.content|safe }}
-                        {{ post.content_plain|safe }}
     									</article>
                       {% if not object_list.last %}<hr />{% endif %}
                     {% endfor %}
