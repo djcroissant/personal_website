@@ -11,3 +11,10 @@
   background-color: #f2dede;
   border-color: #eed3d7;
 }
+
+pre {
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
+  border-radius: 2px;
+  color: #444;
+}
