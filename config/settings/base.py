@@ -68,7 +68,6 @@ THIRD_PARTY_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'rest_framework',
-    'tinymce',
     'taggit',
 ]
 LOCAL_APPS = [
@@ -237,18 +236,3 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_ADAPTER = 'personal_website.users.adapters.AccountAdapter'
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 SOCIALACCOUNT_ADAPTER = 'personal_website.users.adapters.SocialAccountAdapter'
-
-
-# TinyMCE
-# Note: the TINYMCE_JS_URL variable is set here in base.py. I orignially
-# had it in production.py. However, the admin was not finding the .js file
-# correctly. It looks like a tinymce bug. Moving to base.py works and
-# has no noticeable drawbacks.
-# ------------------------------------------------------------------------------
-AWS_STORAGE_BUCKET_NAME = env('DJANGO_AWS_STORAGE_BUCKET_NAME')
-TINYMCE_JS_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/tiny_mce/tiny_mce.js'
-TINYMCE_JS_ROOT = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/tiny_mce/'
-TINYMCE_DEFAULT_CONFIG = {
-    'height': 360,
-    'width': 800,
-    }
