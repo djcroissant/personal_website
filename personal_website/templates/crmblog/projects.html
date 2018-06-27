@@ -33,7 +33,7 @@
     										  {{ post.formatted_markdown|safe }}
                         </div>
     									</article>
-                      {% if not object_list.last %}<hr />{% endif %}
+                      {% if post != object_list.last %}<hr />{% endif %}
                     {% endfor %}
   								</div>
               {% else %}
