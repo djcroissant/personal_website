@@ -27,7 +27,7 @@
 											<p>{{ object.tagline }}</p>
 										</header>
 											<img class="image featured" src="{{ object.photo.url }}" alt="" />
-										{{ object.content|safe }}
+										{{ object.formatted_markdown|safe }}
 									</article>
 								</div>
 						</div>
