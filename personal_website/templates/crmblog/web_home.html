@@ -32,7 +32,9 @@
   													<p>{{ most_recent.tagline }}</p>
   												</header>
   												<img class="image featured" src="{{ most_recent.photo.url }}" alt="" />
-  												{{ most_recent.formatted_markdown|safe }}
+                          <div class="show-bullets">
+  												  {{ most_recent.formatted_markdown|safe }}
+                          </div>
   												{% endwith %}
   											</article>
   										</div>

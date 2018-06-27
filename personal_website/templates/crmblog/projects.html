@@ -28,8 +28,10 @@
     											<h2>{{ post.title }}</h2>
     											<p>{{ post.tagline }}</p>
     										</header>
-    											<img class="image featured" src="{{ post.photo.url }}" alt="" />
-    										{{ post.formatted_markdown|safe }}
+    										<img class="image featured" src="{{ post.photo.url }}" alt="" />
+                        <div class="show-bullets">
+    										  {{ post.formatted_markdown|safe }}
+                        </div>
     									</article>
                       {% if not object_list.last %}<hr />{% endif %}
                     {% endfor %}

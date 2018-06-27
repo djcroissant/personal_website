@@ -26,8 +26,10 @@
 											<h2>{{ object.title }}</h2>
 											<p>{{ object.tagline }}</p>
 										</header>
-											<img class="image featured" src="{{ object.photo.url }}" alt="" />
-										{{ object.formatted_markdown|safe }}
+										<img class="image featured" src="{{ object.photo.url }}" alt="" />
+                    <div class="show-bullets">
+                      {{ object.formatted_markdown|safe }}
+                    </div>
 									</article>
 								</div>
 						</div>
