@@ -29,7 +29,7 @@
     											<p>{{ post.tagline }}</p>
     										</header>
     											<img class="image featured" src="{{ post.photo.url }}" alt="" />
-    										{{ post.content|safe }}
+    										{{ post.formatted_markdown|safe }}
     									</article>
                       {% if not object_list.last %}<hr />{% endif %}
                     {% endfor %}

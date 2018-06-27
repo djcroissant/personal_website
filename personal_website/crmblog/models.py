@@ -3,6 +3,9 @@ from django.utils.html import strip_tags
 
 from autoslug import AutoSlugField
 
+from markdownx.models import MarkdownxField
+from markdownx.utils import markdownify
+
 from taggit.managers import TaggableManager
 
 from general.models import TimeStampedModel
@@ -13,7 +16,7 @@ class Post(TimeStampedModel):
     tagline = models.CharField(max_length=255, blank=True)
     photo = models.FileField(
         upload_to='static/images/crmblog/post_photos', blank=True)
-    content = models.TextField(blank=True)
+    content = MarkdownxField(blank=True)
     slug = AutoSlugField(populate_from='title', blank=True)
     posted_date = models.DateTimeField(null=True)
 
@@ -33,3 +36,7 @@ class Post(TimeStampedModel):
         if len(excerpt_list) > 10:
             excerpt += " ..."
         return excerpt
+
+    @property
+    def formatted_markdown(self):
+        return markdownify(self.content)

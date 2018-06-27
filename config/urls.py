@@ -22,6 +22,7 @@ urlpatterns = [
         include("personal_website.users.urls", namespace="users"),
     ),
     path("accounts/", include("allauth.urls")),
+    re_path(r'^markdownx/', include('markdownx.urls')),
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )
