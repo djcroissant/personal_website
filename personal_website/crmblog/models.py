@@ -29,10 +29,11 @@ class Post(TimeStampedModel):
     def excerpt(self):
         """
         Returns the first 10 words of the post content.
-        Removes all html formatting
+        First convert markdown to html
+        Then removes all html formatting
         """
         excerpt_list = strip_tags(self.content).split(" ")
-        excerpt = " ".join(strip_tags(self.content).split(" ")[:10])
+        excerpt = " ".join(strip_tags(markdownify(self.content)).split(" ")[:10])
         if len(excerpt_list) > 10:
             excerpt += " ..."
         return excerpt

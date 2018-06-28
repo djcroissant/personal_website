@@ -289,3 +289,4 @@ personal_website/media/
 work_files/
 staticfiles/
 requirements/src/
+tmp/
