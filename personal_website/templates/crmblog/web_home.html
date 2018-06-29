@@ -31,7 +31,8 @@
                             <h2><a href="{% url 'crmblog:post_detail' most_recent.slug %}">{{ most_recent.title }}</a></h2>
   													<p>{{ most_recent.tagline }}</p>
   												</header>
-  												<img class="image featured" src="{{ most_recent.photo.url }}" alt="" />
+  												<img class="image featured small-bottom-margin" src="{{ most_recent.photo.url }}" alt="" />
+                          <p><i>written: {{ most_recent.pretty_date }}</i></p>
                           <div class="show-bullets">
   												  {{ most_recent.formatted_markdown|safe }}
                           </div>

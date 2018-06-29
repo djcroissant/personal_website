@@ -41,3 +41,7 @@ class Post(TimeStampedModel):
     @property
     def formatted_markdown(self):
         return markdownify(self.content)
+
+    @property
+    def pretty_date(self):
+        return self.posted_date.date().strftime('%B %d, %Y')

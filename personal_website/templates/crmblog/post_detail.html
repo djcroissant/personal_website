@@ -14,7 +14,7 @@
 	{{ block.super }}
 
 	<div id="page-wrapper">
-		{% include "crmblog/partials/header.html" %}
+		{% include "crmblog/partials/header.html" with title="Web Development" tagline="A blog of lessons learned while building a portfolio" %}
 
 				<!-- Main -->
 					<div class="wrapper style2">
@@ -26,7 +26,8 @@
 											<h2>{{ object.title }}</h2>
 											<p>{{ object.tagline }}</p>
 										</header>
-										<img class="image featured" src="{{ object.photo.url }}" alt="" />
+										<img class="image featured small-bottom-margin" src="{{ object.photo.url }}" alt="" />
+                    <p><i>written: {{ object.pretty_date }}</i></p>
                     <div class="show-bullets">
                       {{ object.formatted_markdown|safe }}
                     </div>

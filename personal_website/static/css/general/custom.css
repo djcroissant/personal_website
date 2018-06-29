@@ -18,3 +18,9 @@
   list-style-type: decimal;
   padding-left: 2em;
 }
+.no-upper-pad {
+  padding-top: 0;
+}
+.small-bottom-margin {
+  margin-bottom: .2em !important;
+}
