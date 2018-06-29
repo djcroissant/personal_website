@@ -6,6 +6,7 @@ from django.views.generic import TemplateView, RedirectView
 from django.views import defaults as default_views
 
 from personal_website.general import views as general_views
+from personal_website.crmblog import views as crmblog_views
 
 urlpatterns = [
     path("", RedirectView.as_view(pattern_name='bio', permanent=False)),
@@ -14,6 +15,7 @@ urlpatterns = [
         "blog/",
         include("personal_website.crmblog.urls", namespace="crmblog"),
     ),
+    path("projects", crmblog_views.ProjectListView.as_view(), name="projects"),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management

@@ -90,7 +90,7 @@ class ProjectListView(EmailFormListView):
     model = Post
     template_name = 'crmblog/projects.html'
     form_class = ContactForm
-    success_url = reverse_lazy('crmblog:projects')
+    success_url = reverse_lazy('projects')
 
     def get_queryset(self):
         queryset = super(ProjectListView, self).get_queryset()
