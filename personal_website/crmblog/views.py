@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, TemplateView, DetailView
+from django.views.generic import ListView, TemplateView, DetailView, FormView
 from django.views.generic.edit import FormMixin
 from django.contrib import messages
 
@@ -84,6 +84,16 @@ class PostDetailView(FormMixin, DetailView):
 
     def get_success_url(self):
         return reverse_lazy('crmblog:post_detail', kwargs = {'slug': self.kwargs['slug']})
+
+class HomeView(FormView):
+    template_name = 'crmblog/home.html'
+    form_class = ContactForm
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        form.send_email()
+        messages.success(self.request, 'Thanks for reaching out. Your message was sent successfully.')
+        return super(HomeView, self).form_valid(form)
 
 
 class ProjectListView(EmailFormListView):

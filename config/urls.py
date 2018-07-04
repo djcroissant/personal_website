@@ -9,8 +9,9 @@ from personal_website.general import views as general_views
 from personal_website.crmblog import views as crmblog_views
 
 urlpatterns = [
-    path("", RedirectView.as_view(pattern_name='bio', permanent=False)),
+    # path("", RedirectView.as_view(pattern_name='bio', permanent=False)),
     path("bio", general_views.BioView.as_view(), name="bio"),
+    path("", crmblog_views.HomeView.as_view(), name="home"),
     path(
         "blog/",
         include("personal_website.crmblog.urls", namespace="crmblog"),

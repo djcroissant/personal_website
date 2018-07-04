@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Projects - derekcovey.me{% endblock %}
+
+{% block stylesheet %}
+  <!-- HTML5UP CSS -->
+  		<link rel="stylesheet" href="{% static 'css/crmblog/html5up.css' %}" />
+  		<link rel="stylesheet" href="{% static 'css/general/custom.css' %}" />
+{% endblock stylesheet %}
+
+{% block content %}
+	{{ block.super }}
+
+	<div id="page-wrapper">
+		{% include "crmblog/partials/header.html" with title="Derek Covey" tagline="Web Developer ~ Project Manager ~ Aerospace Engineer" %}
+
+        <!-- Main -->
+        <div class="wrapper style2">
+            <div id="main" class="container">
+                <h2>In a Nutshell</h2>
+                <img class="image featured" src="{% static 'images/general/html5up/cover_shot.jpg' %}" alt="" />
+                <p> 
+                    I started my career as an Aerospace Engineer working at Boeing.
+                    Over the course of eight years, I advanced from analyzing airplane
+                    performance to leading the certification project for Extended
+                    Operations (ETOPS) on the 737MAX line of airplanes. As much as I
+                    loved working with airplanes, I felt drawn to the expansive world
+                    of Tech. In 2017, I left Boeing and started
+                    my company, Prusik Development, to focus on the intersection
+                    between technology and the outdoor industry. I used Prusik
+                    Development to become a self-taught Python developer and to
+                    create
+                    <a href="https://getyrbeta.com/" target="_blank">Get Yr Beta</a>,
+                    an open source web application to
+                    facilitate, automate, and coordinate planning logistics for
+                    outdoor adventures.
+                </p>
+                <p><strong>
+                    My objective is to combine my background as a project manager
+                    and engineer in the aviation industry with my programming and web development
+                    experience to complete my transition into the Tech industry.
+                </strong></p>
+                
+                
+                <!-- {% if object_list %}
+                    <!-- Content -->
+                    <div id="content">
+                        {% for post in object_list %}
+                            <article class="box post">
+                                <header class="style1">
+                                    <h2>{{ post.title }}</h2>
+                                    <p>{{ post.tagline }}</p>
+                                </header>
+                                <img class="image featured" src="{{ post.photo.url }}" alt="" />
+                            <div class="show-bullets">
+                                {{ post.formatted_markdown|safe }}
+                            </div>
+                            </article>
+                            {% if post != object_list.last %}<hr />{% endif %}
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <h1>Content coming soon!</h1>
+                {% endif %} -->
+            </div>
+        </div>
+
+		{% include "crmblog/partials/footer.html" %}
+	</div>
+
+{% endblock content %}
+
+{% block javascript %}
+	{% include "crmblog/partials/scripts.html" %}
+{% endblock javascript %}
