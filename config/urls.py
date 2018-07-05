@@ -2,15 +2,12 @@ from django.conf import settings
 from django.urls import include, path, re_path
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.views.generic import TemplateView, RedirectView
+from django.views.generic import TemplateView
 from django.views import defaults as default_views
 
-from personal_website.general import views as general_views
 from personal_website.crmblog import views as crmblog_views
 
 urlpatterns = [
-    # path("", RedirectView.as_view(pattern_name='bio', permanent=False)),
-    path("bio", general_views.BioView.as_view(), name="bio"),
     path("", crmblog_views.HomeView.as_view(), name="home"),
     path(
         "blog/",

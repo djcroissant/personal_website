@@ -73,7 +73,6 @@ THIRD_PARTY_APPS = [
 ]
 LOCAL_APPS = [
     'personal_website.users.apps.UsersConfig',
-    'personal_website.general.apps.GeneralConfig',
     'personal_website.crmblog.apps.CrmblogConfig',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

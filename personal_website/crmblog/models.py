@@ -8,7 +8,17 @@ from markdownx.utils import markdownify
 
 from taggit.managers import TaggableManager
 
-from general.models import TimeStampedModel
+
+class TimeStampedModel(models.Model):
+    """
+    An abstract base class model that provides self-updating
+    "created" and "modified" fields.
+    """
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
 
 
 class Post(TimeStampedModel):
