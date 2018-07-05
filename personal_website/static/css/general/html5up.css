@@ -2572,7 +2572,7 @@
 			input[type="button"].special.icon:before,
 			button.special.icon:before,
 			.button.special.icon:before {
-				color: #d1ecdc;
+				color: #050505;
 			}
 
 		input[type="submit"].disabled, input[type="submit"]:disabled,
