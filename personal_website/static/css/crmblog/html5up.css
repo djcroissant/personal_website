@@ -1331,6 +1331,15 @@
 			margin: 0 0 2em 0;
 		}
 
+		.image.featured-medium {
+			display: block;
+			width: 60%;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+
 /* Button */
 
 	input[type="button"],
