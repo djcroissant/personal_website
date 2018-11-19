@@ -3,16 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% block title %}Personal Website{% endblock title %}</title>
+    <title>{% block title %}The Verdance Project{% endblock title %}</title>
     <link rel="shortcut icon" type="image/ico" href="{% static 'images/favicon.ico' %}"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A personal website to showcase my work and interests">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="A modern approach to family homesteading">
     <meta name="author" content="Derek Covey">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <![endif]-->
 
     <!-- CSS Stylesheets: -->
     <!-- Latest compiled and minified Bootstrap 4 beta CSS -->
@@ -22,26 +17,28 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 
     <!-- Sitewide custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/project.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/site_wide.css' %}" />
 
     <!-- Addins from apps -->
     {% block stylesheet %}{% endblock stylesheet %}
   </head>
 
-  <body>
-    {% block content %}
-    	{% if messages %}
-    		<ul id="message-container">
-    	    {% for message in messages %}
-    	    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    	    {% endfor %}
-    		</ul>
-    	{% endif %}
+  <body class="is-preload">
+    <div id="wrapper">
+      {% block content %}
+        {% if messages %}
+          <ul id="message-container">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
 
-      <!-- Additional content can be added here from individual templates -->
-    {% endblock content %}
+        <!-- Additional content can be added here from individual templates -->
+      {% endblock content %}
 
-    {% block footer %}{% endblock footer %}
+      {% block footer %}{% endblock footer %}
+    </div>
 
     <!-- Le javascript
     ================================================== -->
