@@ -85,6 +85,11 @@ class PostDetailView(FormMixin, DetailView):
     def get_success_url(self):
         return reverse_lazy('crmblog:post_detail', kwargs = {'slug': self.kwargs['slug']})
 
+
+class BlogDemoView(TemplateView):
+  template_name = 'crmblog/blog_demo.html'
+
+
 class HomeView(FormView):
     template_name = 'crmblog/home.html'
     form_class = ContactForm
