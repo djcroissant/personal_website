@@ -90,6 +90,11 @@ class BlogDemoView(TemplateView):
   template_name = 'crmblog/blog_demo.html'
 
 
+class BlogHomeView(ListView):
+  template_name = 'crmblog/blog_home.html'
+  model = Post
+
+
 class HomeView(FormView):
     template_name = 'crmblog/home.html'
     form_class = ContactForm
