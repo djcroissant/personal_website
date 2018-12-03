@@ -94,25 +94,6 @@ class BlogHomeView(ListView):
   template_name = 'crmblog/blog_home.html'
   model = Post
 
-
-class HomeView(FormView):
-    template_name = 'crmblog/home.html'
-    form_class = ContactForm
-    success_url = reverse_lazy('home')
-
-    def form_valid(self, form):
-        form.send_email()
-        messages.success(self.request, 'Thanks for reaching out. Your message was sent successfully.')
-        return super(HomeView, self).form_valid(form)
-
-
-class ProjectListView(EmailFormListView):
-    model = Post
-    template_name = 'crmblog/projects.html'
-    form_class = ContactForm
-    success_url = reverse_lazy('projects')
-
-    def get_queryset(self):
-        queryset = super(ProjectListView, self).get_queryset()
-        queryset = queryset.filter(tags__name__in=["feature project"])
-        return queryset.order_by('-posted_date')
+  def get_queryset(self):
+    queryset = super(BlogHomeView, self).get_queryset()
+    return queryset.order_by('-posted_date')
