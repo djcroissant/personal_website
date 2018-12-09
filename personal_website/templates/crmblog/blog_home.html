@@ -89,10 +89,10 @@
                 <li>
                   <article>
                     <header>
-                      <h3><a href="single.html">Lorem ipsum fermentum ut nisl vitae</a></h3>
+                      <h3><a href="single.html">{{ post.title }}</a></h3>
                       <time class="published" datetime="2015-10-20">{{ post.pretty_date }}</time>
                     </header>
-                    <a href="single.html" class="image"><img src="{% static 'images/crmblog/html5up/pic08.jpg' %}" alt="" /></a>
+                    <a href="single.html" class="image"><img src="{{ post.photo.url }}" alt="" /></a>
                   </article>
                 </li>
               {% endfor %}
