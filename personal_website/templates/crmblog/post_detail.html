@@ -13,32 +13,47 @@
 {% block content %}
 	{{ block.super }}
 
-	<div id="page-wrapper">
-		{% include "crmblog/partials/header.html" %}
+  {% include "crmblog/partials/header.html" %}
+  <!-- Main -->
+    <div id="main">
+      <!-- Post -->
+        <article class="post">
+          <header>
+            <div class="title">
+              <h2>{{ object.title }}</h2>
+              <p>{{ object.tagline }}</p>
+            </div>
+            <div class="meta">
+              <time class="published" datetime="2015-11-01">{{ object.pretty_date }}</time>
+              <a href="#" class="author"><span class="name">{{ object.author.first_name }} {{object.author.last_name }}</span><img src="{% static 'images/crmblog/html5up/avatar.jpg' %}" alt="" /></a>
+            </div>
+          </header>
+          <span class="image featured"><img src="{{ object.photo.url }}" alt="" /></span>
+          {{ object.formatted_markdown|safe }}
+          <footer>
+            <ul class="stats">
+              <li><a href="#">Tags will go here</a></li>
+            </ul>
+          </footer>
+        </article>
+      <!-- End Post -->
 
-				<!-- Main -->
-					<div class="wrapper style2">
-						<div id="main" class="container">
-							<!-- Content -->
-								<div id="content">
-									<article class="box post">
-										<header class="style1">
-											<h2>{{ object.title }}</h2>
-											<p>{{ object.tagline }}</p>
-										</header>
-										<img class="image featured small-bottom-margin" src="{{ object.photo.url }}" alt="" />
-                    <p><i>written: {{ object.pretty_date }}</i></p>
-                    <div class="show-bullets">
-                      {{ object.formatted_markdown|safe }}
-                    </div>
-									</article>
-								</div>
-						</div>
-					</div>
+      <!-- Footer -->
+        <section id="footer">
+          <ul class="icons">
+            <li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="fa-rss"><span class="label">RSS</span></a></li>
+            <li><a href="#" class="fa-envelope"><span class="label">Email</span></a></li>
+          </ul>
+          <p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+        </section>
+      <!-- End Footer -->
 
-		{% include "crmblog/partials/footer.html" %}
-	</div>
-
+    </div>
+  <!-- End Main -->
+  
 {% endblock content %}
 
 {% block javascript %}

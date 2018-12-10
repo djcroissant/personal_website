@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}The Verdance Project - {{ object.title }}{% endblock %}
+
+{% block stylesheet %}
+  <!-- HTML5UP CSS -->
+  		<link rel="stylesheet" href="{% static 'css/crmblog/html5up.css' %}" />
+  		<link rel="stylesheet" href="{% static 'css/crmblog/custom.css' %}" />
+{% endblock stylesheet %}
+
+{% block content %}
+	{{ block.super }}
+
+	<div id="page-wrapper">
+		{% include "crmblog/partials/header.html" %}
+
+				<!-- Main -->
+					<div class="wrapper style2">
+						<div id="main" class="container">
+							<!-- Content -->
+								<div id="content">
+									<article class="box post">
+										<header class="style1">
+											<h2>{{ object.title }}</h2>
+											<p>{{ object.tagline }}</p>
+										</header>
+										<img class="image featured small-bottom-margin" src="{{ object.photo.url }}" alt="" />
+                    <p><i>written: {{ object.pretty_date }}</i></p>
+                    <div class="show-bullets">
+                      {{ object.formatted_markdown|safe }}
+                    </div>
+									</article>
+								</div>
+						</div>
+					</div>
+
+		{% include "crmblog/partials/footer.html" %}
+	</div>
+
+{% endblock content %}
+
+{% block javascript %}
+	{% include "crmblog/partials/scripts.html" %}
+{% endblock javascript %}
