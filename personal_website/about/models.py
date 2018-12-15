@@ -25,7 +25,7 @@ class Bio(TimeStampedModel):
     content = MarkdownxField(blank=True)
 
     def __str__(self):
-        return self.person.name
+        return self.person.first_name
 
     @property
     def formatted_markdown(self):

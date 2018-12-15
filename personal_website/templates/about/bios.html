@@ -19,15 +19,15 @@
       <!-- Using post_detail template to hold About descriptions -->
         <article class="post">
           <header>
-            <div class="title">
+            <div class="title align-center">
               <h2>About</h2>
             </div>
           </header>
           {% if object_list %}
             {% for bio in object_list %}
               <div class="bio">
-                <span class="image featured"><img src="{{ object.photo.url }}" alt="" /></span>
-                {{ object.formatted_markdown|safe }}
+                <span class="image featured"><img src="{{ bio.photo.url }}" alt="" /></span>
+                {{ bio.formatted_markdown|safe }}
               </div>
             {% endfor %}
           {% endif %}
