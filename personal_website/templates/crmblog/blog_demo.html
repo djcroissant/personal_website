@@ -6,14 +6,14 @@
 
 {% block stylesheet %}
   <!-- HTML5UP CSS -->
-  		<link rel="stylesheet" href="{% static 'css/crmblog/html5up.css' %}" />
-  		<link rel="stylesheet" href="{% static 'css/crmblog/custom.css' %}" />
+  		<link rel="stylesheet" href="{% static 'css/common/html5up.css' %}" />
+  		<link rel="stylesheet" href="{% static 'css/common/custom.css' %}" />
 {% endblock stylesheet %}
 
 {% block content %}
 	{{ block.super }}
 
-  {% include "common/partials/header.html" %}
+  {% include "crmblog/partials/header.html" %}
   <!-- Main -->
     <div id="main">
 
@@ -552,5 +552,5 @@
 {% endblock content %}
 
 {% block javascript %}
-	{% include "common/partials/scripts.html" %}
+	{% include "crmblog/partials/scripts.html" %}
 {% endblock javascript %}
