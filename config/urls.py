@@ -13,6 +13,10 @@ urlpatterns = [
         "blog/",
         include("personal_website.crmblog.urls", namespace="crmblog"),
     ),
+    path(
+        "about/",
+        include("personal_website.about.urls", namespace="about"),
+    ),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
