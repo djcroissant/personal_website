@@ -14,7 +14,7 @@
 	{{ block.super }}
 
 	<div id="page-wrapper">
-		{% include "crmblog/partials/header.html" with title="Web Development" tagline=" A blog to document lesssons learned while learning new tools and techniques in web development." %}
+		{% include "common/partials/header.html" with title="Web Development" tagline=" A blog to document lesssons learned while learning new tools and techniques in web development." %}
 		
 
 				<!-- Main -->
@@ -72,11 +72,11 @@
 						</div>
 					</div>
 
-		{% include "crmblog/partials/footer.html" %}
+		{% include "common/partials/footer.html" %}
 	</div>
 
 {% endblock content %}
 
 {% block javascript %}
-	{% include "crmblog/partials/scripts.html" %}
+	{% include "common/partials/scripts.html" %}
 {% endblock javascript %}
