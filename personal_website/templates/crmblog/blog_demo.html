@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}The Verdance Project - Home{% endblock %}
+{% block title %}The Verdance Project - Demo Page{% endblock %}
 
 {% block stylesheet %}
   <!-- HTML5UP CSS -->
@@ -13,7 +13,7 @@
 {% block content %}
 	{{ block.super }}
 
-  {% include "crmblog/partials/header.html" %}
+  {% include "common/partials/header.html" %}
   <!-- Main -->
     <div id="main">
 
@@ -552,5 +552,5 @@
 {% endblock content %}
 
 {% block javascript %}
-	{% include "crmblog/partials/scripts.html" %}
+	{% include "common/partials/scripts.html" %}
 {% endblock javascript %}
