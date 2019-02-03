@@ -14,6 +14,8 @@ class ControlPanelView(TemplateView):
   template_name = 'leds/control-panel.html'
 
 class AjaxUpdateJsonDataView(UpdateView):
-  pass
-  # import pdb
-  # pdb.set_trace()
+  # model = 
+  def get_object(self, queryset=None):
+    print('hello view')
+    super(AjaxUpdateJsonDataView, self).get_object(queryset=None)
+

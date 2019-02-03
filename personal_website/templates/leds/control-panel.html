@@ -46,25 +46,28 @@
   <script>
     // Handler for all-on click
     $("#all-on").on("click", function() {
-      alert("hello");
       ajax_all_on();
     });
 
 
-    // function ajax_all_on() {
-    //   $.ajax({
-    //     url: "{% url 'leds:update-json-data' %}",
-    //     data: {"r": 255, "g": 255, "b": 255}
-    //     dataType: "json",
-    //     type: "POST",
+    function ajax_all_on() {
+      $.ajax({
+        url: "{% url 'leds:update-json-data' %}",
+        data: {
+          "r": 255, 
+          "g": 255, 
+          "b": 255,
+          "csrfmiddlewaretoken": "{{ csrf_token }}"},
+        dataType: "json",
+        type: "POST",
 
-    //     success: function(data) {
-    //       if (data["msg"]) {
-    //         post_message(data["msg"]);
-    //       }
-    //     }
-    //   });
-    // }
+        success: function(data) {
+          if (data["msg"]) {
+            post_message(data["msg"]);
+          }
+        }
+      });
+    }
 
 
   </script>
