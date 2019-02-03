@@ -63,6 +63,7 @@
         type: "POST",
 
         success: function(data) {
+          console.log(data["result"])
           if (data["msg"]) {
             post_message(data["msg"]);
           }

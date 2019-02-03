@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.views.generic import View, TemplateView, UpdateView
 from django.http import JsonResponse, HttpResponse
 
-
 from leds.models import LedStrip
+
+import json
 
 class JsonDataView(View):
     def get(self, request, *args, **kwargs):
@@ -20,9 +21,17 @@ class ControlPanelView(TemplateView):
 #     super(AjaxUpdateJsonDataView, self).get_object(queryset=None)
 
 def AjaxUpdateJsonDataView(request):
-    if request.is_ajax():
-        message = "Yes, AJAX!"
-        print("hi AJAX")
+    if request.is_ajax() and request.method == 'POST':
+      r = request.POST.dict()
+      data = {
+        "r": r["r"],
+        "g": r["g"],
+        "b": r["b"], 
+      }
+      # UPDATE: GIVE LEDSTRIP A NAME AND CONNECT IT TO A USER
+      obj=LedStrip.objects.get(pk=1)
+      obj.data=data
+      obj.save()
+      return JsonResponse({'result':'All is well on the luminous front'})
     else:
-        message = "Not Ajax"
-    return HttpResponse(message)
+      return JsonResponse({'result':'Something went terribly wrong!'})
