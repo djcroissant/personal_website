@@ -24,7 +24,10 @@
               <h2>LED Control Panel</h2>
             </div>
           </header>
-          <h1>content here</h1>
+          <ul class="actions fit">
+            <li><a href="#" class="button fit" id="all-on">Lights On</a></li>
+            <li><a href="#" class="button fit" id="all-off">Lights Off</a></li>
+          </ul>
         </article>
       <!-- End Post -->
       
@@ -36,5 +39,35 @@
 {% endblock content %}
 
 {% block javascript %}
-	{% include "common/partials/scripts.html" %}
+  {% include "common/partials/scripts.html" %}
+  
+
+ {% comment %}MOVE THIS INTO A SEPARATE FILE {% endcomment %}  
+  <script>
+    // Handler for all-on click
+    $("#all-on").on("click", function() {
+      alert("hello");
+      ajax_all_on();
+    });
+
+
+    // function ajax_all_on() {
+    //   $.ajax({
+    //     url: "{% url 'leds:update-json-data' %}",
+    //     data: {"r": 255, "g": 255, "b": 255}
+    //     dataType: "json",
+    //     type: "POST",
+
+    //     success: function(data) {
+    //       if (data["msg"]) {
+    //         post_message(data["msg"]);
+    //       }
+    //     }
+    //   });
+    // }
+
+
+  </script>
+
+
 {% endblock javascript %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import View, TemplateView
+from django.views.generic import View, TemplateView, UpdateView
 from django.http import JsonResponse
 
 
@@ -12,3 +12,8 @@ class JsonDataView(View):
 
 class ControlPanelView(TemplateView):
   template_name = 'leds/control-panel.html'
+
+class AjaxUpdateJsonDataView(UpdateView):
+  pass
+  # import pdb
+  # pdb.set_trace()
