@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}The Verdance Project - LED Control Panel{% endblock %}
+
+{% block stylesheet %}
+  <!-- HTML5UP CSS -->
+  		<link rel="stylesheet" href="{% static 'css/common/html5up.css' %}" />
+  		<link rel="stylesheet" href="{% static 'css/common/site_wide.css' %}" />
+  		<link rel="stylesheet" href="{% static 'css/about/custom.css' %}" />
+{% endblock stylesheet %}
+
+{% block content %}
+	{{ block.super }}
+
+  {% include "common/partials/header.html" %}
+  <!-- Main -->
+    <div id="main">
+      <!-- Using post_detail template to hold About descriptions -->
+        <article class="post">
+          <header>
+            <div class="title align-center">
+              <h2>LED Control Panel</h2>
+            </div>
+          </header>
+          <h1>content here</h1>
+        </article>
+      <!-- End Post -->
+      
+      <!-- Footer -->
+      {% include "common/partials/footer.html" %}
+
+    </div>
+
+{% endblock content %}
+
+{% block javascript %}
+	{% include "common/partials/scripts.html" %}
+{% endblock javascript %}
