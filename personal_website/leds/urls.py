@@ -4,5 +4,6 @@ from . import views
 
 app_name = "leds"
 urlpatterns = [
-    path("json-return", view=views.JsonReturnView.as_view(), name="json"),
+    path("json-data", view=views.JsonDataView.as_view(), name="json-data"),
+    path("control-panel", view=views.ControlPanelView.as_view(), name="led-ui"),
 ]
