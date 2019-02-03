@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, TemplateView, DetailView, FormView
+from django.views.generic import ListView, TemplateView, DetailView, FormView, View
 from django.views.generic.edit import FormMixin
 from django.contrib import messages
+from django.http import JsonResponse
 
 from crmblog.models import Post
 from .forms import ContactForm
@@ -97,3 +98,9 @@ class BlogHomeView(ListView):
   def get_queryset(self):
     queryset = super(BlogHomeView, self).get_queryset()
     return queryset.order_by('-posted_date')
+
+class JsonReturnView(View):
+
+    def get(self, request, *args, **kwargs):
+        data={"hello": "goodbye"}
+        return JsonResponse(data)

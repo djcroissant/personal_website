@@ -9,6 +9,7 @@ from personal_website.crmblog import views as crmblog_views
 
 urlpatterns = [
     path("", crmblog_views.BlogHomeView.as_view(), name="home"),
+    path("json-return", crmblog_views.JsonReturnView.as_view(), name="json"),
     path(
         "blog/",
         include("personal_website.crmblog.urls", namespace="crmblog"),
