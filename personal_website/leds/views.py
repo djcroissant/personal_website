@@ -3,7 +3,7 @@ from django.views.generic import View, TemplateView, UpdateView
 from django.http import JsonResponse
 
 
-from leds.models import LedStripModel
+from leds.models import LedStrip
 
 class JsonDataView(View):
     def get(self, request, *args, **kwargs):

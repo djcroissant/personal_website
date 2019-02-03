@@ -1,7 +1,7 @@
 from django.contrib.postgres.fields import JSONField
 from django.db import models
 
-class LedStripModel(models.Model):
+class LedStrip(models.Model):
   """
   Stores information for a users LED strip. 
   Initially, just a JSON value to return
