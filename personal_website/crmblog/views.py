@@ -98,9 +98,3 @@ class BlogHomeView(ListView):
   def get_queryset(self):
     queryset = super(BlogHomeView, self).get_queryset()
     return queryset.order_by('-posted_date')
-
-class JsonReturnView(View):
-
-    def get(self, request, *args, **kwargs):
-        data={"hello": "goodbye"}
-        return JsonResponse(data)

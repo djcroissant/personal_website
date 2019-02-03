@@ -75,6 +75,7 @@ LOCAL_APPS = [
     'personal_website.users.apps.UsersConfig',
     'personal_website.crmblog.apps.CrmblogConfig',
     'personal_website.about.apps.AboutConfig',
+    'personal_website.leds.apps.LedsConfig',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
