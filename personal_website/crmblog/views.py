@@ -3,7 +3,6 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, TemplateView, DetailView, FormView, View
 from django.views.generic.edit import FormMixin
 from django.contrib import messages
-from django.http import JsonResponse
 
 from crmblog.models import Post
 from .forms import ContactForm
