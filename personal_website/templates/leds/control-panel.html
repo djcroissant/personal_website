@@ -46,18 +46,24 @@
   <script>
     // Handler for all-on click
     $("#all-on").on("click", function() {
-      ajax_all_on();
+      ajax_rgb_update(255, 255, 255);
+      return false;
+    });
+
+    // Handler for all-off click
+    $("#all-off").on("click", function() {
+      ajax_rgb_update(0, 0, 0);
       return false;
     });
 
 
-    function ajax_all_on() {
+    function ajax_rgb_update(r, g, b) {
       $.ajax({
         url: "{% url 'leds:update-json-data' %}",
         data: {
-          "r": 255, 
-          "g": 255, 
-          "b": 255,
+          "r": r, 
+          "g": g, 
+          "b": b,
           "csrfmiddlewaretoken": "{{ csrf_token }}"},
         dataType: "json",
         type: "POST",
