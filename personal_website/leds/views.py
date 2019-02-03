@@ -6,10 +6,15 @@ from leds.models import LedStrip
 
 import json
 
-class JsonDataView(View):
-    def get(self, request, *args, **kwargs):
-        data={"hello": "goodbye"}
-        return JsonResponse(data)
+# class JsonDataView(View):
+#     def get(self, request, *args, **kwargs):
+#         data={"hello": "goodbye"}
+#         return JsonResponse(data)
+
+def JsonDataView(request):
+  if request.method == "GET":
+    obj=LedStrip.objects.get(pk=1)
+    return JsonResponse(obj.data)
 
 class ControlPanelView(TemplateView):
   template_name = 'leds/control-panel.html'
